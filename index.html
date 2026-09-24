@@ -25,7 +25,6 @@
     .kanji-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.kanji-card{background:#faf8f5;border:2px solid var(--border);border-radius:12px;padding:16px;text-align:center;font-size:2rem;font-weight:700;color:var(--red);cursor:pointer}
     .loading-view{text-align:center;padding:20px 0}.result-header{text-align:center;background:var(--goldlight);border:2px solid var(--gold);border-radius:12px;padding:16px;margin-bottom:20px}.result-combined-title{font-size:1.25rem;font-weight:700;color:var(--red);margin-top:8px}
     .result-box{background:#faf8f5;border-left:4px solid var(--verm);padding:14px;border-radius:0 8px 8px 0;margin-bottom:16px}.result-box-title{font-size:.85rem;font-weight:700;color:var(--sub);margin-bottom:4px}.result-box-content{font-size:1rem;font-weight:700;white-space:pre-line}
-    /* うめこ画像 */
     .umeko-img{display:block;width:min(100%,330px);height:auto;margin:10px auto 18px;object-fit:contain}
     .umeko-img-small{width:min(100%,285px)}
     .hidden{display:none!important}
@@ -38,7 +37,7 @@
 <div id="view-start" class="card">
 <h1>⛩️<br>うめこ式 神社診断</h1>
 <div class="subtitle">「今のあんた、<br>どの神さまんとこ行く？」</div>
-<img src="./umeko-start.PNG" alt="神社へ案内するうめこ" class="umeko-img">
+<img src="/jinja/umeko-start.PNG" alt="神社へ案内するうめこ" class="umeko-img">
 <p style="text-align:center">生年月日から見る基本キャラと、今のあんたの状態を合わせて“今行くならこんな神社”をうめこ式で処方します🤣</p>
 <button class="btn" type="button" onclick="goToStep('view-birth')">神さまに聞いてみる ⛩️</button>
 <div class="note">※うめこ式オリジナルのエンタメ診断です。特定の宗教・神社・信仰との関係はありません。</div>
@@ -46,7 +45,7 @@
 
 <div id="view-birth" class="card hidden">
 <div class="section-title">まず、いつ生まれたん？</div>
-<img src="./umeko-birth.PNG" alt="生年月日を聞くうめこ" class="umeko-img umeko-img-small">
+<img src="/jinja/umeko-birth.PNG" alt="生年月日を聞くうめこ" class="umeko-img umeko-img-small">
 <div class="form-group"><input type="date" id="birthdate-input"><div id="birth-error" class="error-msg hidden"></div></div>
 <button class="btn" type="button" onclick="submitBirthdate()">次へ</button>
 </div>
@@ -58,12 +57,12 @@
 </div>
 
 <div id="view-loading" class="card hidden"><div class="loading-view">
-<img src="./umeko-thinking.PNG" alt="神さま会議中のうめこ" class="umeko-img umeko-img-small">
+<img src="/jinja/umeko-thinking.PNG" alt="神さま会議中のうめこ" class="umeko-img umeko-img-small">
 <div class="subtitle">ただいま神さま会議中……</div><p style="color:var(--sub);font-weight:700">知らんけど🤣</p></div></div>
 
 <div id="view-result" class="card hidden">
 <div style="text-align:center;font-weight:700;color:var(--sub);font-size:.9rem">⛩️ 今のあんたの神社処方箋</div>
-<img src="./umeko-result.PNG" alt="診断結果を発表するうめこ" class="umeko-img umeko-img-small">
+<img src="/jinja/umeko-result.PNG" alt="診断結果を発表するうめこ" class="umeko-img umeko-img-small">
 <div class="result-header"><div id="res-numerology-title" style="font-size:.95rem;color:var(--sub);font-weight:700"></div><div id="res-type-title" class="result-combined-title"></div></div>
 <div class="result-box"><div class="result-box-title">今必要なテーマ</div><div id="res-theme" class="result-box-content"></div></div>
 <div class="result-box"><div class="result-box-title">神さまからの処方箋</div><div id="res-message" class="result-box-content"></div></div>
@@ -80,13 +79,13 @@
 const NUMEROLOGY_DATA={
 1:{name:"切り込み隊長",comment:"先頭走るん得意やろ。今回は勢いだけで鳥居くぐるな🤣"},2:{name:"つなぎ屋",comment:"周りの気持ちも大事。でも今日は自分のお願いも持って行き。"},3:{name:"ワクワク発電所",comment:"楽しい方にアンテナ立つ人。神社でも寄り道しすぎ注意🤣"},4:{name:"土台職人",comment:"ちゃんとしたい人ほど考えすぎる。今日は一個だけ決めよ。"},5:{name:"自由人",comment:"動けるんは強み。でも次から次へ行く前に一回立ち止まろ🤣"},6:{name:"世話焼き隊長",comment:"人のお願いまで背負わんでええ。今日は自分の番。"},7:{name:"探究人",comment:"調べるんは得意。でも検索だけで参拝した気になるな🤣"},8:{name:"現実動かす人",comment:"結果を出したい人。お願いと一緒に“自分がやること”も決めよ。"},9:{name:"まとめて手放す人",comment:"抱えてるもん多ない？終わらせることも立派な前進やで。"},11:{name:"直感アンテナ",comment:"ピンと来る感覚は大事。そのあと現実もちゃんと確認しよ。"},22:{name:"デカいもん建てる人",comment:"デカいこと考えられる人。今日は最初の一歩まで小さく落とそ。"},33:{name:"愛のばら撒き隊",comment:"人のことばっかり祈ってへん？今日は自分も祈願メンバーに入れ🤣"},44:{name:"現実化の親方",comment:"形にする力を使う時。神頼み＋現実行動、この二刀流でいこ。"}};
 const SHRINE_TYPES={
-road:{name:"🚪 道ひらきタイプ",theme:"新しい流れ・決断・転機・最初の一歩",message:"道が見えてから動くんちゃう。\\n一歩動いたら道が見えてくる時もある🤣",keywords:"道開き・開運・新しい門出など",homework:"今いちばん動かしたいことを1個決めとこ。"},
-money:{name:"💰 金運・商売繁盛タイプ",theme:"仕事・商売・成果・豊かさ",message:"お願いだけして帰ったらあかん🤣\\n帰ったら何するかまで決めとこ。",keywords:"商売繁盛・事業・仕事・金運など",homework:"欲しい金額より、何で豊かになりたいか考えとこ。"},
-relation:{name:"❤️ 良縁・ご縁タイプ",theme:"人間関係・仕事・仲間・良縁",message:"縁結びいうても恋愛だけちゃうで。\\n人も仕事も場所も、ご縁や。",keywords:"良縁・縁結び・人間関係など",homework:"どんなご縁が欲しいか、ちゃんと言葉にしとこ。"},
-release:{name:"✂️ 厄落とし・手放しタイプ",theme:"区切り・整理・厄除け・手放し",message:"新しいもん入れる前に、\\nもう要らんもん抱えてへんか🤣",keywords:"厄除け・厄祓い・災難除けなど",homework:"何を終わらせたいか、ひとつ決めとこ。"},
-healing:{name:"🌿 癒し・再生タイプ",theme:"休息・回復・立て直し・整える",message:"頑張るんは一回休み。\\n今は立て直す方が先や。",keywords:"健康祈願・無病息災・心願成就など",homework:"今日は“何を頑張るか”より“何を休むか”決めとこ。"},
-wisdom:{name:"🧠 学び・知恵タイプ",theme:"勉強・資格・技術・知識",message:"神さまに頭よくしてもろても、\\nテキスト開かんかったら始まらん🤣",keywords:"学業成就・試験・知恵・技芸など",homework:"今、何を身につけたいか1個決めとこ。"},
-guard:{name:"🛡️ 勝負・守護タイプ",theme:"勝負・決断・守護・大事な局面",message:"守ってもらうんはええ。\\nでも最後に決めるんは自分やで。",keywords:"勝運・必勝・守護・厄除けなど",homework:"何に勝ちたいんかより、何を守りたいんか考えてみ。"}};
+road:{name:"🚪 道ひらきタイプ",theme:"新しい流れ・決断・転機・最初の一歩",message:"道が見えてから動くんちゃう。\n一歩動いたら道が見えてくる時もある🤣",keywords:"道開き・開運・新しい門出など",homework:"今いちばん動かしたいことを1個決めとこ。"},
+money:{name:"💰 金運・商売繁盛タイプ",theme:"仕事・商売・成果・豊かさ",message:"お願いだけして帰ったらあかん🤣\n帰ったら何するかまで決めとこ。",keywords:"商売繁盛・事業・仕事・金運など",homework:"欲しい金額より、何で豊かになりたいか考えとこ。"},
+relation:{name:"❤️ 良縁・ご縁タイプ",theme:"人間関係・仕事・仲間・良縁",message:"縁結びいうても恋愛だけちゃうで。\n人も仕事も場所も、ご縁や。",keywords:"良縁・縁結び・人間関係など",homework:"どんなご縁が欲しいか、ちゃんと言葉にしとこ。"},
+release:{name:"✂️ 厄落とし・手放しタイプ",theme:"区切り・整理・厄除け・手放し",message:"新しいもん入れる前に、\nもう要らんもん抱えてへんか🤣",keywords:"厄除け・厄祓い・災難除けなど",homework:"何を終わらせたいか、ひとつ決めとこ。"},
+healing:{name:"🌿 癒し・再生タイプ",theme:"休息・回復・立て直し・整える",message:"頑張るんは一回休み。\n今は立て直す方が先や。",keywords:"健康祈願・無病息災・心願成就など",homework:"今日は“何を頑張るか”より“何を休むか”決めとこ。"},
+wisdom:{name:"🧠 学び・知恵タイプ",theme:"勉強・資格・技術・知識",message:"神さまに頭よくしてもろても、\nテキスト開かんかったら始まらん🤣",keywords:"学業成就・試験・知恵・技芸など",homework:"今、何を身につけたいか1個決めとこ。"},
+guard:{name:"🛡️ 勝負・守護タイプ",theme:"勝負・決断・守護・大事な局面",message:"守ってもらうんはええ。\nでも最後に決めるんは自分やで。",keywords:"勝運・必勝・守護・厄除けなど",homework:"何に勝ちたいんかより、何を守りたいんか考えてみ。"}};
 const QUESTIONS=[
 {title:"今いちばん、どうなったら嬉しい？",options:[["新しい流れを作りたい","road",2],["仕事やお金を動かしたい","money",2],["ええ人・ええ仕事と繋がりたい","relation",2],["いらんもん手放したい","release",2]]},
 {title:"今の自分に一番近いんは？",options:[["行きたい方向が決まらん","road",2],["頑張ってるのに成果にならん","money",2],["人間関係がなんか噛み合わん","relation",2],["もう疲れた。知らん🤣","healing",2]]},
