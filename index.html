@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>うめこ式 神社診断</title>
-  <style>
-    :root{--bg:#fcfbf7;--card:#fff;--text:#332c27;--sub:#6e645d;--verm:#e64a19;--red:#c62828;--gold:#d4af37;--goldlight:#fef9e7;--border:#eee9e0;--radius:16px;--shadow:0 8px 20px rgba(0,0,0,.06)}
-    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-    body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Hiragino Kaku Gothic ProN",sans-serif;line-height:1.6;display:flex;justify-content:center;min-height:100vh;padding:16px 12px}
-    .app-container{width:100%;max-width:480px;margin:auto;display:flex;flex-direction:column}
-    .top-badge{text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--verm);margin-bottom:8px}
-    .card{background:var(--card);border-radius:var(--radius);padding:24px 20px;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:20px}
-    h1{font-size:1.75rem;text-align:center;color:var(--red);margin-bottom:8px;line-height:1.3}
-    .subtitle{font-size:1.15rem;text-align:center;font-weight:700;margin-bottom:20px}
-    .section-title{font-size:1.2rem;font-weight:700;text-align:center;color:var(--red);margin-bottom:12px}
-    p{margin-bottom:12px;font-size:.98rem}
-    .note{font-size:.8rem;color:var(--sub);background:#f7f5f0;padding:12px;border-radius:8px;margin-top:16px;line-height:1.4}
-    .btn{display:block;width:100%;padding:16px;font-size:1.1rem;font-weight:700;text-align:center;color:#fff;background:linear-gradient(135deg,var(--verm),var(--red));border:0;border-radius:50px;cursor:pointer;box-shadow:0 4px 12px rgba(198,40,40,.3);text-decoration:none;margin-top:16px}
-    .btn:active{transform:scale(.98)} .btn-secondary{background:#fff;color:var(--text);border:2px solid var(--border);box-shadow:none}.btn-line{background:#06c755}
-    .form-group{margin:20px 0;text-align:center} input[type=date]{width:100%;padding:14px;font-size:1.1rem;border:2px solid var(--border);border-radius:12px;background:#faf8f5;color:var(--text)}
-    .error-msg{color:var(--red);font-weight:700;text-align:center;margin-top:10px;font-size:.95rem}
-    .progress-container{margin-bottom:20px}.progress-text{display:flex;justify-content:space-between;font-size:.9rem;color:var(--sub);font-weight:700;margin-bottom:6px}.progress-bar-bg{height:8px;background:#eee9e0;border-radius:4px;overflow:hidden}.progress-bar-fill{height:100%;background:var(--verm);transition:width .3s}
-    .option-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}.option-btn{width:100%;padding:16px;text-align:left;background:#faf8f5;border:2px solid var(--border);border-radius:12px;font-size:1rem;font-weight:700;color:var(--text)}
-    .kanji-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.kanji-card{background:#faf8f5;border:2px solid var(--border);border-radius:12px;padding:16px;text-align:center;font-size:2rem;font-weight:700;color:var(--red);cursor:pointer}
-    .loading-view{text-align:center;padding:20px 0}.result-header{text-align:center;background:var(--goldlight);border:2px solid var(--gold);border-radius:12px;padding:16px;margin-bottom:20px}.result-combined-title{font-size:1.25rem;font-weight:700;color:var(--red);margin-top:8px}
-    .result-box{background:#faf8f5;border-left:4px solid var(--verm);padding:14px;border-radius:0 8px 8px 0;margin-bottom:16px}.result-box-title{font-size:.85rem;font-weight:700;color:var(--sub);margin-bottom:4px}.result-box-content{font-size:1rem;font-weight:700;white-space:pre-line}
-    .umeko-img{display:block;width:min(100%,330px);height:auto;margin:10px auto 18px;object-fit:contain}
-    .umeko-img-small{width:min(100%,285px)}
-    .hidden{display:none!important}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うめこ式 神社診断</title>
+<style>
+:root{--bg:#fcfbf7;--card:#fff;--text:#332c27;--sub:#6e645d;--verm:#e64a19;--red:#c62828;--gold:#d4af37;--goldlight:#fef9e7;--border:#eee9e0;--radius:16px;--shadow:0 8px 20px rgba(0,0,0,.06)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Hiragino Kaku Gothic ProN",sans-serif;line-height:1.6;display:flex;justify-content:center;min-height:100vh;padding:16px 12px}
+.app-container{width:100%;max-width:480px;margin:auto;display:flex;flex-direction:column}.top-badge{text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--verm);margin-bottom:8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 20px;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:20px}
+h1{font-size:1.75rem;text-align:center;color:var(--red);margin-bottom:8px;line-height:1.3}.subtitle{font-size:1.15rem;text-align:center;font-weight:700;margin-bottom:20px}.section-title{font-size:1.2rem;font-weight:700;text-align:center;color:var(--red);margin-bottom:12px}
+p{margin-bottom:12px;font-size:.98rem}.note{font-size:.8rem;color:var(--sub);background:#f7f5f0;padding:12px;border-radius:8px;margin-top:16px;line-height:1.4}
+.btn{display:block;width:100%;padding:16px;font-size:1.05rem;font-weight:700;text-align:center;color:#fff;background:linear-gradient(135deg,var(--verm),var(--red));border:0;border-radius:50px;cursor:pointer;box-shadow:0 4px 12px rgba(198,40,40,.3);text-decoration:none;margin-top:16px}
+.btn:active{transform:scale(.98)}.btn-secondary{background:#fff;color:var(--text);border:2px solid var(--border);box-shadow:none}.btn-line{background:#06c755}
+.form-group{margin:20px 0;text-align:center}input[type=date],select{width:100%;padding:14px;font-size:1.05rem;border:2px solid var(--border);border-radius:12px;background:#faf8f5;color:var(--text)}
+.error-msg{color:var(--red);font-weight:700;text-align:center;margin-top:10px;font-size:.95rem}.progress-container{margin-bottom:20px}.progress-text{display:flex;justify-content:space-between;font-size:.9rem;color:var(--sub);font-weight:700;margin-bottom:6px}.progress-bar-bg{height:8px;background:#eee9e0;border-radius:4px;overflow:hidden}.progress-bar-fill{height:100%;background:var(--verm);transition:width .3s}
+.option-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}.option-btn{width:100%;padding:16px;text-align:left;background:#faf8f5;border:2px solid var(--border);border-radius:12px;font-size:1rem;font-weight:700;color:var(--text)}
+.kanji-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.kanji-card{background:#faf8f5;border:2px solid var(--border);border-radius:12px;padding:16px;text-align:center;font-size:2rem;font-weight:700;color:var(--red);cursor:pointer}
+.loading-view{text-align:center;padding:20px 0}.result-header{text-align:center;background:var(--goldlight);border:2px solid var(--gold);border-radius:12px;padding:16px;margin-bottom:20px}.result-combined-title{font-size:1.25rem;font-weight:700;color:var(--red);margin-top:8px}
+.result-box{background:#faf8f5;border-left:4px solid var(--verm);padding:14px;border-radius:0 8px 8px 0;margin-bottom:16px}.result-box-title{font-size:.85rem;font-weight:700;color:var(--sub);margin-bottom:4px}.result-box-content{font-size:1rem;font-weight:700;white-space:pre-line}
+.umeko-img{display:block;width:min(100%,330px);height:auto;margin:10px auto 18px;object-fit:contain}.umeko-img-small{width:min(100%,285px)}.hidden{display:none!important}
+.shrine-finder{margin-top:24px;padding-top:22px;border-top:2px dashed #eadfcd}.finder-title{text-align:center;font-size:1.3rem;font-weight:800;color:var(--red);margin-bottom:4px}.finder-sub{text-align:center;color:var(--sub);font-weight:700;font-size:.9rem;margin-bottom:14px}
+.shrine-card{background:var(--goldlight);border:1px solid #ead48b;border-radius:14px;padding:16px;margin-top:14px}.shrine-name{font-size:1.18rem;font-weight:800;color:var(--red)}.shrine-place{font-size:.85rem;color:var(--sub);font-weight:700;margin-bottom:8px}.shrine-reason{font-weight:700;margin-bottom:8px}.official-link{display:block;text-align:center;background:#fff;border:2px solid var(--gold);color:#6b5410;text-decoration:none;font-weight:800;padding:11px;border-radius:30px;margin-top:10px}
+</style>
 </head>
 <body>
-<div class="app-container">
-<div class="top-badge">うめこ式 ORIGINAL</div>
+<div class="app-container"><div class="top-badge">うめこ式 ORIGINAL</div>
 
 <div id="view-start" class="card">
 <h1>⛩️<br>うめこ式 神社診断</h1>
@@ -69,10 +63,22 @@
 <div class="result-box"><div class="result-box-title">うめこから一言</div><div id="res-umeko-comment" class="result-box-content"></div></div>
 <div class="result-box"><div class="result-box-title">参拝前の宿題</div><div id="res-homework" class="result-box-content"></div></div>
 <div class="result-box"><div class="result-box-title">こんな神社を探してみて</div><div id="res-keywords" class="result-box-content"></div></div>
+
+<div class="shrine-finder">
+<div class="finder-title">⛩️ ほな、どこ行く？🤣</div>
+<div class="finder-sub">住んでるとこやなくてもOK。行きたい地域を選んでな。</div>
+<select id="region-select" onchange="showShrine()">
+<option value="">地域を選ぶ ▼</option>
+<option value="hokkaido">北海道・東北</option><option value="kanto">関東</option><option value="hokuriku">甲信越・北陸</option><option value="tokai">東海</option><option value="kinki">近畿</option><option value="chugoku">中国</option><option value="shikoku">四国</option><option value="kyushu">九州・沖縄</option>
+</select>
+<div id="shrine-output"></div>
+<div class="note">神社候補は、各神社・神社庁などの公式情報で確認できる御神徳・祈願内容をもとにした「うめこ式」の候補です。絶対的な相性や効果を保証するものではありません。参拝前に最新の受付・参拝情報を公式サイトで確認してな。</div>
+</div>
+
 <button class="btn btn-secondary" type="button" onclick="copyResult()">結果をコピー</button><div id="copy-toast" class="error-msg hidden" style="color:#2e7d32"></div>
 <a href="https://lin.ee/O23Sb7o" target="_blank" rel="noopener noreferrer" class="btn btn-line">うめこ屋 公式LINEへ</a>
 <button class="btn" type="button" onclick="resetApp()">もう一回診断する</button>
-<div class="note">この診断は、うめこ式オリジナルのエンタメ診断です。神社の御祭神・御神徳・由緒などを断定するものではありません。実際に参拝先を選ぶ際は、各神社の公式情報をご確認ください。</div>
+<div class="note">この診断は、うめこ式オリジナルのエンタメ診断です。神社の御祭神・御神徳・由緒などを断定するものではありません。</div>
 </div></div>
 
 <script>
@@ -86,6 +92,74 @@ release:{name:"✂️ 厄落とし・手放しタイプ",theme:"区切り・整�
 healing:{name:"🌿 癒し・再生タイプ",theme:"休息・回復・立て直し・整える",message:"頑張るんは一回休み。\n今は立て直す方が先や。",keywords:"健康祈願・無病息災・心願成就など",homework:"今日は“何を頑張るか”より“何を休むか”決めとこ。"},
 wisdom:{name:"🧠 学び・知恵タイプ",theme:"勉強・資格・技術・知識",message:"神さまに頭よくしてもろても、\nテキスト開かんかったら始まらん🤣",keywords:"学業成就・試験・知恵・技芸など",homework:"今、何を身につけたいか1個決めとこ。"},
 guard:{name:"🛡️ 勝負・守護タイプ",theme:"勝負・決断・守護・大事な局面",message:"守ってもらうんはええ。\nでも最後に決めるんは自分やで。",keywords:"勝運・必勝・守護・厄除けなど",homework:"何に勝ちたいんかより、何を守りたいんか考えてみ。"}};
+
+const SHRINES={
+hokkaido:{
+road:{name:"北海道神宮",pref:"北海道",reason:"開運・心願成就などの祈願先候補として。",url:"https://www.hokkaidojingu.or.jp/"},
+money:{name:"札幌伏見稲荷神社",pref:"北海道",reason:"北海道神社庁が商売繁盛の守護神として案内。",url:"https://hokkaidojinjacho.jp/%E4%BC%8F%E8%A6%8B%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE/"},
+relation:{name:"北海道神宮",pref:"北海道",reason:"良縁・人とのご縁を願う参拝候補として。",url:"https://www.hokkaidojingu.or.jp/"},
+release:{name:"北海道神宮",pref:"北海道",reason:"厄祓・厄除の祈願先候補として。",url:"https://www.hokkaidojingu.or.jp/"},
+healing:{name:"北海道神宮",pref:"北海道",reason:"身体健全・病気平癒などを願う候補として。",url:"https://www.hokkaidojingu.or.jp/"},
+wisdom:{name:"盛岡八幡宮",pref:"岩手県",reason:"学業・合格など、学びの節目の参拝候補として。",url:"https://morioka8man.jp/"},
+guard:{name:"鹽竈神社",pref:"宮城県",reason:"大事な局面の守護・安全を願う参拝候補として。",url:"https://shiogamajinja.jp/"}},
+kanto:{
+road:{name:"猿田神社",pref:"千葉県",reason:"猿田彦大神をお祀りする、道・導きのテーマの候補。",url:"https://www.sarutajinja.com/"},
+money:{name:"神田明神",pref:"東京都",reason:"公式に商売繁昌・社運隆昌祈願を案内。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
+relation:{name:"川越氷川神社",pref:"埼玉県",reason:"ご縁・縁結びをテーマにした参拝候補。",url:"https://www.kawagoehikawa.jp/"},
+release:{name:"神田明神",pref:"東京都",reason:"公式に厄除・除災厄除の祈願を案内。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
+healing:{name:"神田明神",pref:"東京都",reason:"公式祈願に身体健全・病気平癒がある。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
+wisdom:{name:"湯島天満宮",pref:"東京都",reason:"学業成就・合格祈願で知られる天神さま。",url:"https://www.yushimatenjin.or.jp/"},
+guard:{name:"鹿島神宮",pref:"茨城県",reason:"勝負・決断など大事な局面の参拝候補として。",url:"https://kashimajingu.jp/"}},
+hokuriku:{
+road:{name:"戸隠神社",pref:"長野県",reason:"新しい一歩や心願の節目に訪ねる候補として。",url:"https://www.togakushi-jinja.jp/"},
+money:{name:"彌彦神社",pref:"新潟県",reason:"仕事・産業・繁栄を願う参拝候補として。",url:"https://www.yahiko-jinjya.or.jp/"},
+relation:{name:"白山比咩神社",pref:"石川県",reason:"良縁成就・夫婦円満などの御神徳を公式に案内。",url:"https://www.shirayama.or.jp/"},
+release:{name:"金澤神社",pref:"石川県",reason:"公式に厄除けの案内がある。",url:"https://www.kanazawa-jj.or.jp/guide/"},
+healing:{name:"白山比咩神社",pref:"石川県",reason:"心身を整え、新しい区切りを願う候補として。",url:"https://www.shirayama.or.jp/"},
+wisdom:{name:"金澤神社",pref:"石川県",reason:"公式に合格祈願・学業成就・勧学祭を案内。",url:"https://www.kanazawa-jj.or.jp/guide/entry-48.html"},
+guard:{name:"諏訪大社",pref:"長野県",reason:"大事な決断や守護を願う参拝候補として。",url:"https://suwataisha.or.jp/"}},
+tokai:{
+road:{name:"猿田彦神社",pref:"三重県",reason:"公式が『みちひらき』を掲げる、まさに道ひらき候補。",url:"https://www.sarutahikojinja.or.jp/"},
+money:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に商売繁盛・事業繁栄がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+relation:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に良縁祈願がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+release:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に厄祓い・方位除けがある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+healing:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に身体健全・病気平癒がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+wisdom:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に合格祈願・就職祈願がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+guard:{name:"熱田神宮",pref:"愛知県",reason:"守護・大事な局面の祈願先候補として。",url:"https://www.atsutajingu.or.jp/"}},
+kinki:{
+road:{name:"伏見稲荷大社",pref:"京都府",reason:"開運招福・心願成就など、新しい流れを願う候補。",url:"https://inari.jp/grace/gokito/"},
+money:{name:"伏見稲荷大社",pref:"京都府",reason:"公式に商売繁昌・事業の繁昌を案内。",url:"https://inari.jp/grace/gokito/"},
+relation:{name:"丹生都比売神社",pref:"和歌山県",reason:"公式に良縁を導き固く結ぶ『縁結び』祈祷を案内。",url:"https://niutsuhime.or.jp/worship/enmusubi/"},
+release:{name:"石清水八幡宮",pref:"京都府",reason:"厄除・災難除けなど、祓いと区切りの候補。",url:"https://iwashimizu.or.jp/"},
+healing:{name:"伏見稲荷大社",pref:"京都府",reason:"公式の祈祷に病気平癒がある。",url:"https://inari.jp/grace/gokito/"},
+wisdom:{name:"大阪天満宮",pref:"大阪府",reason:"学業・合格など、学びの節目の参拝候補。",url:"https://osakatemmangu.or.jp/"},
+guard:{name:"石清水八幡宮",pref:"京都府",reason:"必勝・守護など大事な局面の候補として。",url:"https://iwashimizu.or.jp/"}},
+chugoku:{
+road:{name:"吉備津神社",pref:"岡山県",reason:"開運・心願など、新しい節目の参拝候補として。",url:"https://www.kibitujinja.com/"},
+money:{name:"吉備津彦神社",pref:"岡山県",reason:"仕事・繁栄・開運を願う候補として。",url:"https://www.kibitsuhiko.or.jp/"},
+relation:{name:"出雲大社",pref:"島根県",reason:"公式が男女だけでなく『あらゆる繋がりのご縁』と説明。",url:"https://izumooyashiro.or.jp/archives/faq/7880"},
+release:{name:"吉備津神社",pref:"岡山県",reason:"厄除・災難除けなど、区切りを願う候補として。",url:"https://www.kibitujinja.com/"},
+healing:{name:"熊野大社",pref:"島根県",reason:"心身を整え、再出発を願う参拝候補として。",url:"https://www.kumanotaisha.or.jp/"},
+wisdom:{name:"防府天満宮",pref:"山口県",reason:"天神さまへ学業・合格を願う参拝候補。",url:"https://www.hofutenmangu.com/"},
+guard:{name:"厳島神社",pref:"広島県",reason:"大事な局面の守護・安全を願う候補として。",url:"https://www.itsukushimajinja.jp/"}},
+shikoku:{
+road:{name:"大麻比古神社",pref:"徳島県",reason:"新しい門出・開運の節目の候補として。",url:"https://www.ooasahikojinja.jp/"},
+money:{name:"伊豫豆比古命神社（椿神社）",pref:"愛媛県",reason:"商売繁昌・開運を願う参拝候補。",url:"https://tubaki.or.jp/"},
+relation:{name:"土佐神社",pref:"高知県",reason:"人とのご縁・心願の節目に訪ねる候補として。",url:"https://tosajinja.com/"},
+release:{name:"田村神社",pref:"香川県",reason:"厄除・災難除けなどを願う参拝候補として。",url:"https://tamurajinja.com/"},
+healing:{name:"石鎚神社",pref:"愛媛県",reason:"身体健全・回復を願う参拝候補として。",url:"https://ishizuchisan.jp/"},
+wisdom:{name:"潮江天満宮",pref:"高知県",reason:"天神さまへ学業・合格を願う参拝候補。",url:"https://www.ushioe-tenmangu.jp/"},
+guard:{name:"金刀比羅宮",pref:"香川県",reason:"守護・安全・大事な局面を願う候補として。",url:"https://www.konpira.or.jp/"}},
+kyushu:{
+road:{name:"高千穂神社",pref:"宮崎県",reason:"新しい節目・心願を願う参拝候補として。",url:"https://www.kanko-miyazaki.jp/spot/1007"},
+money:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"商売繁昌・家運繁栄などを願う候補。",url:"https://www.yutokusan.jp/"},
+relation:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"良縁・心願など、ご縁の節目の候補として。",url:"https://www.yutokusan.jp/"},
+release:{name:"波上宮",pref:"沖縄県",reason:"厄除・災難除けなど、祓いの節目の候補として。",url:"https://naminouegu.jp/"},
+healing:{name:"霧島神宮",pref:"鹿児島県",reason:"身体健全・心願など、立て直しを願う候補として。",url:"https://kirishimajingu.or.jp/"},
+wisdom:{name:"太宰府天満宮",pref:"福岡県",reason:"公式に学業上達祈願を案内。学びを伸ばしたい時の候補。",url:"https://www.dazaifutenmangu.or.jp/kigan/gakugyou"},
+guard:{name:"宇佐神宮",pref:"大分県",reason:"守護・厄除など大事な局面の参拝候補として。",url:"https://www.usajinguu.com/"}}
+};
+
 const QUESTIONS=[
 {title:"今いちばん、どうなったら嬉しい？",options:[["新しい流れを作りたい","road",2],["仕事やお金を動かしたい","money",2],["ええ人・ええ仕事と繋がりたい","relation",2],["いらんもん手放したい","release",2]]},
 {title:"今の自分に一番近いんは？",options:[["行きたい方向が決まらん","road",2],["頑張ってるのに成果にならん","money",2],["人間関係がなんか噛み合わん","relation",2],["もう疲れた。知らん🤣","healing",2]]},
@@ -94,7 +168,7 @@ const QUESTIONS=[
 {title:"最近のあんた、どれ？",options:[["同じところグルグルしてる","road",2],["抱え込みすぎ","healing",2],["切った方がええと分かってるのに切れん","release",2],["ここだけは負けたない、がある","guard",2]]},
 {title:"最後。考えんと選んで。",desc:"今ほしい漢字、ひとつ。",isKanji:true,options:[["開","road",3],["豊","money",3],["縁","relation",3],["祓","release",3],["休","healing",3],["智","wisdom",3],["守","guard",3]]}
 ];
-let userNumerology=null,currentQuestionIndex=0,userAnswers=[],finalResultData=null;
+let userNumerology=null,currentQuestionIndex=0,userAnswers=[],finalResultData=null,finalWinner=null;
 window.addEventListener("DOMContentLoaded",()=>{const d=new Date(),y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,"0"),day=String(d.getDate()).padStart(2,"0");document.getElementById("birthdate-input").max=`${y}-${m}-${day}`});
 function goToStep(id){["view-start","view-birth","view-question","view-loading","view-result"].forEach(v=>document.getElementById(v).classList.toggle("hidden",v!==id));window.scrollTo(0,0)}
 function calculateNumerology(str){let s=[...str].reduce((a,c)=>a+Number(c),0),masters=[11,22,33,44];while(s>9&&!masters.includes(s))s=[...String(s)].reduce((a,c)=>a+Number(c),0);return s}
@@ -102,11 +176,11 @@ function submitBirthdate(){const v=document.getElementById("birthdate-input").va
 function renderQuestion(){const q=QUESTIONS[currentQuestionIndex],c=document.getElementById("q-options");document.getElementById("q-progress-text").textContent=`${currentQuestionIndex+1} / ${QUESTIONS.length}`;document.getElementById("q-progress-bar").style.width=`${(currentQuestionIndex+1)/QUESTIONS.length*100}%`;document.getElementById("q-title").textContent=q.title;const d=document.getElementById("q-desc");d.textContent=q.desc||"";d.classList.toggle("hidden",!q.desc);c.innerHTML="";if(q.isKanji){const g=document.createElement("div");g.className="kanji-grid";q.options.forEach(o=>{const x=document.createElement("div");x.className="kanji-card";x.textContent=o[0];x.onclick=()=>selectOption(o[1],o[2]);g.appendChild(x)});c.appendChild(g)}else q.options.forEach(o=>{const b=document.createElement("button");b.type="button";b.className="option-btn";b.textContent=o[0];b.onclick=()=>selectOption(o[1],o[2]);c.appendChild(b)});document.getElementById("q-back-btn").classList.toggle("hidden",currentQuestionIndex===0)}
 function selectOption(type,score){userAnswers[currentQuestionIndex]={type,score};if(currentQuestionIndex<5){currentQuestionIndex++;renderQuestion()}else{goToStep("view-loading");setTimeout(calculateAndShowResult,1200)}}
 function prevQuestion(){if(currentQuestionIndex>0){currentQuestionIndex--;renderQuestion()}}
-function calculateAndShowResult(){const scores={road:0,money:0,relation:0,release:0,healing:0,wisdom:0,guard:0};userAnswers.forEach(a=>{if(a)scores[a.type]+=a.score});const max=Math.max(...Object.values(scores)),tops=Object.keys(scores).filter(k=>scores[k]===max);let winner=tops[0];if(tops.length>1){const q6=userAnswers[5]?.type,q1=userAnswers[0]?.type;if(q6&&tops.includes(q6))winner=q6;else if(q1&&tops.includes(q1))winner=q1}const n=NUMEROLOGY_DATA[userNumerology],sh=SHRINE_TYPES[winner];finalResultData={numerologyNum:userNumerology,numerologyName:n.name,shrineName:sh.name,shrineMessage:sh.message};document.getElementById("res-numerology-title").textContent=`数秘 ${userNumerology}｜${n.name}`;document.getElementById("res-type-title").textContent=sh.name;document.getElementById("res-theme").textContent=sh.theme;document.getElementById("res-message").textContent=sh.message;document.getElementById("res-umeko-comment").textContent=n.comment;document.getElementById("res-homework").textContent=sh.homework;document.getElementById("res-keywords").textContent=sh.keywords;goToStep("view-result")}
+function calculateAndShowResult(){const scores={road:0,money:0,relation:0,release:0,healing:0,wisdom:0,guard:0};userAnswers.forEach(a=>{if(a)scores[a.type]+=a.score});const max=Math.max(...Object.values(scores)),tops=Object.keys(scores).filter(k=>scores[k]===max);let winner=tops[0];if(tops.length>1){const q6=userAnswers[5]?.type,q1=userAnswers[0]?.type;if(q6&&tops.includes(q6))winner=q6;else if(q1&&tops.includes(q1))winner=q1}finalWinner=winner;const n=NUMEROLOGY_DATA[userNumerology],sh=SHRINE_TYPES[winner];finalResultData={numerologyNum:userNumerology,numerologyName:n.name,shrineName:sh.name,shrineMessage:sh.message};document.getElementById("res-numerology-title").textContent=`数秘 ${userNumerology}｜${n.name}`;document.getElementById("res-type-title").textContent=sh.name;document.getElementById("res-theme").textContent=sh.theme;document.getElementById("res-message").textContent=sh.message;document.getElementById("res-umeko-comment").textContent=n.comment;document.getElementById("res-homework").textContent=sh.homework;document.getElementById("res-keywords").textContent=sh.keywords;document.getElementById("region-select").value="";document.getElementById("shrine-output").innerHTML="";goToStep("view-result")}
+function showShrine(){const region=document.getElementById("region-select").value,out=document.getElementById("shrine-output");if(!region||!finalWinner){out.innerHTML="";return}const s=SHRINES[region][finalWinner];out.innerHTML=`<div class="shrine-card"><div class="shrine-name">⛩️ ${s.name}</div><div class="shrine-place">${s.pref}</div><div class="shrine-reason">今の処方箋なら、このへんどう？🤣<br>${s.reason}</div><a class="official-link" href="${s.url}" target="_blank" rel="noopener noreferrer">公式情報を見てみる →</a></div>`}
 function copyResult(){if(!finalResultData)return;const t=`⛩️うめこ式 神社診断\n\n私は\n【数秘${finalResultData.numerologyNum}｜${finalResultData.numerologyName}】\n×\n【${finalResultData.shrineName}】\n\n今の神さま処方箋：\n『${finalResultData.shrineMessage.replace(/\n/g,"")}』\n\n#うめこ式神社診断`;if(navigator.clipboard?.writeText)navigator.clipboard.writeText(t).then(showCopyToast).catch(()=>fallbackCopyText(t));else fallbackCopyText(t)}
 function fallbackCopyText(t){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");a.remove();showCopyToast()}
 function showCopyToast(){const t=document.getElementById("copy-toast");t.textContent="神さま処方箋、コピーしたで🤣";t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),3000)}
-function resetApp(){userNumerology=null;currentQuestionIndex=0;userAnswers=[];finalResultData=null;document.getElementById("birthdate-input").value="";goToStep("view-start")}
+function resetApp(){userNumerology=null;currentQuestionIndex=0;userAnswers=[];finalResultData=null;finalWinner=null;document.getElementById("birthdate-input").value="";goToStep("view-start")}
 </script>
-</body>
-</html>
+</body></html>
