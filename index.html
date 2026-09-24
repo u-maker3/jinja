@@ -56,12 +56,14 @@
   <div id="view-start" class="card">
     <h1>⛩️<br>うめこ式 神社診断</h1>
     <div class="subtitle">「今のあんた、<br>どの神さまんとこ行く？」</div>
+    <img src="umeko-start.PNG" alt="神社へ案内するうめこ" class="umeko-img">
     <p style="text-align:center;">生年月日から見る基本キャラと、今のあんたの状態を合わせて“今行くならこんな神社”をうめこ式で処方します🤣</p>
     <button class="btn" onclick="goToStep('view-birth')">神さまに聞いてみる ⛩️</button>
     <div class="note">※うめこ式オリジナルのエンタメ診断です。特定の宗教・神社・信仰との関係はありません。</div>
   </div>
   <div id="view-birth" class="card hidden">
     <div class="section-title">まず、いつ生まれたん？</div>
+    <img src="umeko-birth.PNG" alt="生年月日を聞くうめこ" class="umeko-img umeko-img-small">
     <div class="form-group">
       <input type="date" id="birthdate-input" max="" oninput="clearError()">
       <div id="birth-error" class="error-msg hidden"></div>
@@ -79,7 +81,7 @@
     <button id="q-back-btn" class="btn btn-secondary" onclick="prevQuestion()" style="margin-top:20px;">戻る</button>
   </div>
   <div id="view-loading" class="card hidden">
-    <div class="loading-view"><div class="torii-icon">⛩️</div><div class="subtitle">ただいま神さま会議中……</div><p style="color:var(--text-sub);font-weight:bold;">知らんけど🤣</p></div>
+    <div class="loading-view"><img src="umeko-thinking.PNG" alt="神さま会議中のうめこ" class="umeko-img umeko-img-small"><div class="subtitle">ただいま神さま会議中……</div><p style="color:var(--text-sub);font-weight:bold;">知らんけど🤣</p></div>
   </div>
   <div id="view-result" class="card hidden">
     <div style="text-align:center;font-weight:bold;color:var(--text-sub);font-size:.9rem;">⛩️ 今のあんたの神社処方箋</div>
