@@ -72,7 +72,7 @@ p{margin-bottom:12px;font-size:.98rem}.note{font-size:.8rem;color:var(--sub);bac
 <option value="hokkaido">北海道・東北</option><option value="kanto">関東</option><option value="hokuriku">甲信越・北陸</option><option value="tokai">東海</option><option value="kinki">近畿</option><option value="chugoku">中国</option><option value="shikoku">四国</option><option value="kyushu">九州・沖縄</option>
 </select>
 <div id="shrine-output"></div>
-<div class="note">神社候補は、各神社・神社庁などの公式情報で確認できる御神徳・祈願内容をもとにした「うめこ式」の候補です。絶対的な相性や効果を保証するものではありません。参拝前に最新の受付・参拝情報を公式サイトで確認してな。</div>
+<div class="note">神社候補は、神社公式サイト・神社庁などで確認できる祈願内容等をもとにした「うめこ式」のエンタメ候補です。神社との相性・効果を保証するものではありません。祈願受付や参拝情報は変わることがあるので、行く前にリンク先の最新情報を確認してな。</div>
 </div>
 
 <button class="btn btn-secondary" type="button" onclick="copyResult()">結果をコピー</button><div id="copy-toast" class="error-msg hidden" style="color:#2e7d32"></div>
@@ -95,69 +95,69 @@ guard:{name:"🛡️ 勝負・守護タイプ",theme:"勝負・決断・守護�
 
 const SHRINES={
 hokkaido:{
-road:{name:"北海道神宮",pref:"北海道",reason:"開運・心願成就などの祈願先候補として。",url:"https://www.hokkaidojingu.or.jp/"},
-money:{name:"札幌伏見稲荷神社",pref:"北海道",reason:"北海道神社庁が商売繁盛の守護神として案内。",url:"https://hokkaidojinjacho.jp/%E4%BC%8F%E8%A6%8B%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE/"},
-relation:{name:"北海道神宮",pref:"北海道",reason:"良縁・人とのご縁を願う参拝候補として。",url:"https://www.hokkaidojingu.or.jp/"},
-release:{name:"北海道神宮",pref:"北海道",reason:"厄祓・厄除の祈願先候補として。",url:"https://www.hokkaidojingu.or.jp/"},
-healing:{name:"北海道神宮",pref:"北海道",reason:"身体健全・病気平癒などを願う候補として。",url:"https://www.hokkaidojingu.or.jp/"},
-wisdom:{name:"盛岡八幡宮",pref:"岩手県",reason:"学業・合格など、学びの節目の参拝候補として。",url:"https://morioka8man.jp/"},
-guard:{name:"鹽竈神社",pref:"宮城県",reason:"大事な局面の守護・安全を願う参拝候補として。",url:"https://shiogamajinja.jp/"}},
+road:{name:"北海道神宮",pref:"北海道",reason:"公式の祈祷案内に「厄除開運」「目標達成」などがある。新しい流れを願う候補に。",url:"https://www.hokkaidojingu.or.jp/prayer.html"},
+money:{name:"北海道神宮",pref:"北海道",reason:"公式の祈祷案内に「商売繁昌」「業績向上」「社運隆昌」がある。",url:"https://www.hokkaidojingu.or.jp/prayer.html"},
+relation:{name:"北海道神宮",pref:"北海道",reason:"公式の祈祷案内に「良縁祈願」がある。",url:"https://www.hokkaidojingu.or.jp/prayer.html"},
+release:{name:"北海道神宮",pref:"北海道",reason:"公式の祈祷案内に「厄祓」「厄除開運」がある。",url:"https://www.hokkaidojingu.or.jp/prayer.html"},
+healing:{name:"北海道神宮",pref:"北海道",reason:"公式の祈祷案内に「健康祈願」「病気平癒」がある。",url:"https://www.hokkaidojingu.or.jp/prayer.html"},
+wisdom:{name:"北海道神宮",pref:"北海道",reason:"公式の祈祷案内に「合格祈願」がある。",url:"https://www.hokkaidojingu.or.jp/prayer.html"},
+guard:{name:"鹽竈神社",pref:"宮城県",reason:"公式の祈願案内に「除災招福」「身体健康」、法人祈願に「必勝祈願」がある。",url:"https://shiogamajinja.jp/reception3/"}},
 kanto:{
-road:{name:"猿田神社",pref:"千葉県",reason:"猿田彦大神をお祀りする、道・導きのテーマの候補。",url:"https://www.sarutajinja.com/"},
-money:{name:"神田明神",pref:"東京都",reason:"公式に商売繁昌・社運隆昌祈願を案内。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
-relation:{name:"川越氷川神社",pref:"埼玉県",reason:"ご縁・縁結びをテーマにした参拝候補。",url:"https://www.kawagoehikawa.jp/"},
-release:{name:"神田明神",pref:"東京都",reason:"公式に厄除・除災厄除の祈願を案内。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
-healing:{name:"神田明神",pref:"東京都",reason:"公式祈願に身体健全・病気平癒がある。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
-wisdom:{name:"湯島天満宮",pref:"東京都",reason:"学業成就・合格祈願で知られる天神さま。",url:"https://www.yushimatenjin.or.jp/"},
-guard:{name:"鹿島神宮",pref:"茨城県",reason:"勝負・決断など大事な局面の参拝候補として。",url:"https://kashimajingu.jp/"}},
+road:{name:"神田明神",pref:"東京都",reason:"公式に各種ご祈願を案内。新しい仕事や節目の心願を持って参拝する候補に。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
+money:{name:"神田明神",pref:"東京都",reason:"公式に「商売繁昌」「社運隆昌」のご祈願を案内。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
+relation:{name:"神田明神",pref:"東京都",reason:"公式情報で「縁結び」を祈願内容の一つとして案内。",url:"https://www.kandamyoujin.or.jp/yuso/"},
+release:{name:"神田明神",pref:"東京都",reason:"公式に「厄除け」のご祈祷を案内。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
+healing:{name:"神田明神",pref:"東京都",reason:"公式の各種ご祈願を案内。心身を整えて次へ進む節目の候補に。",url:"https://www.kandamyoujin.or.jp/sanpai/"},
+wisdom:{name:"湯島天満宮",pref:"東京都",reason:"公式に「合格祈願」「学業成就」を案内。",url:"https://www.yushimatenjin.or.jp/prayer/"},
+guard:{name:"神田明神",pref:"東京都",reason:"公式に厄除けなどのご祈祷を案内。大事な局面で守りを願う候補に。",url:"https://www.kandamyoujin.or.jp/sanpai/"}},
 hokuriku:{
-road:{name:"戸隠神社",pref:"長野県",reason:"新しい一歩や心願の節目に訪ねる候補として。",url:"https://www.togakushi-jinja.jp/"},
-money:{name:"彌彦神社",pref:"新潟県",reason:"仕事・産業・繁栄を願う参拝候補として。",url:"https://www.yahiko-jinjya.or.jp/"},
-relation:{name:"白山比咩神社",pref:"石川県",reason:"良縁成就・夫婦円満などの御神徳を公式に案内。",url:"https://www.shirayama.or.jp/"},
-release:{name:"金澤神社",pref:"石川県",reason:"公式に厄除けの案内がある。",url:"https://www.kanazawa-jj.or.jp/guide/"},
-healing:{name:"白山比咩神社",pref:"石川県",reason:"心身を整え、新しい区切りを願う候補として。",url:"https://www.shirayama.or.jp/"},
-wisdom:{name:"金澤神社",pref:"石川県",reason:"公式に合格祈願・学業成就・勧学祭を案内。",url:"https://www.kanazawa-jj.or.jp/guide/entry-48.html"},
-guard:{name:"諏訪大社",pref:"長野県",reason:"大事な決断や守護を願う参拝候補として。",url:"https://suwataisha.or.jp/"}},
+road:{name:"彌彦神社",pref:"新潟県",reason:"公式の願意例に「心願成就」「厄難消除」がある。新しい一歩の節目の候補に。",url:"https://yahiko-jinjya.or.jp/visit/gokitou/"},
+money:{name:"彌彦神社",pref:"新潟県",reason:"公式の願意例に「商売繁昌」「社運隆昌」がある。",url:"https://yahiko-jinjya.or.jp/visit/gokitou/"},
+relation:{name:"彌彦神社",pref:"新潟県",reason:"公式の願意例に「良縁成就」がある。",url:"https://yahiko-jinjya.or.jp/visit/gokitou/"},
+release:{name:"彌彦神社",pref:"新潟県",reason:"公式の願意例に「厄難消除」がある。",url:"https://yahiko-jinjya.or.jp/visit/gokitou/"},
+healing:{name:"彌彦神社",pref:"新潟県",reason:"公式の願意例に「身体健全」「病気平癒」がある。",url:"https://yahiko-jinjya.or.jp/visit/gokitou/"},
+wisdom:{name:"金澤神社",pref:"石川県",reason:"公式に天神さまを学問の神様として案内し、合格祈願・勧学祭を行っている。",url:"https://www.kanazawa-jj.or.jp/"},
+guard:{name:"諏訪大社",pref:"長野県",reason:"公式に「厄除け」などのご祈祷を案内。大事な節目の守りを願う候補に。",url:"https://suwataisha.or.jp/praying/gokito/"}},
 tokai:{
-road:{name:"猿田彦神社",pref:"三重県",reason:"公式が『みちひらき』を掲げる、まさに道ひらき候補。",url:"https://www.sarutahikojinja.or.jp/"},
-money:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に商売繁盛・事業繁栄がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
-relation:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に良縁祈願がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
-release:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に厄祓い・方位除けがある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
-healing:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に身体健全・病気平癒がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
-wisdom:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に合格祈願・就職祈願がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
-guard:{name:"熱田神宮",pref:"愛知県",reason:"守護・大事な局面の祈願先候補として。",url:"https://www.atsutajingu.or.jp/"}},
+road:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に、ずばり「みちひらき」がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+money:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に「商売繁盛」「事業繁栄」「社運隆昌」がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+relation:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に「良縁祈願」がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+release:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に「厄祓い」「方位除け」がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+healing:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に「身体健全」「病気平癒」がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+wisdom:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に「合格祈願」「就職祈願」がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"},
+guard:{name:"猿田彦神社",pref:"三重県",reason:"公式の主な願意に「交通安全」「旅行安全」「厄祓い」がある。",url:"https://www.sarutahikojinja.or.jp/kitou_kigan/"}},
 kinki:{
-road:{name:"伏見稲荷大社",pref:"京都府",reason:"開運招福・心願成就など、新しい流れを願う候補。",url:"https://inari.jp/grace/gokito/"},
-money:{name:"伏見稲荷大社",pref:"京都府",reason:"公式に商売繁昌・事業の繁昌を案内。",url:"https://inari.jp/grace/gokito/"},
-relation:{name:"丹生都比売神社",pref:"和歌山県",reason:"公式に良縁を導き固く結ぶ『縁結び』祈祷を案内。",url:"https://niutsuhime.or.jp/worship/enmusubi/"},
-release:{name:"石清水八幡宮",pref:"京都府",reason:"厄除・災難除けなど、祓いと区切りの候補。",url:"https://iwashimizu.or.jp/"},
-healing:{name:"伏見稲荷大社",pref:"京都府",reason:"公式の祈祷に病気平癒がある。",url:"https://inari.jp/grace/gokito/"},
-wisdom:{name:"大阪天満宮",pref:"大阪府",reason:"学業・合格など、学びの節目の参拝候補。",url:"https://osakatemmangu.or.jp/"},
-guard:{name:"石清水八幡宮",pref:"京都府",reason:"必勝・守護など大事な局面の候補として。",url:"https://iwashimizu.or.jp/"}},
+road:{name:"伏見稲荷大社",pref:"京都府",reason:"公式のご祈祷に「開運招福」「心願成就」がある。",url:"https://inari.jp/grace/gokito/"},
+money:{name:"伏見稲荷大社",pref:"京都府",reason:"公式に「商売繁昌」のご祈祷を案内。",url:"https://inari.jp/grace/gokito/"},
+relation:{name:"丹生都比売神社",pref:"和歌山県",reason:"公式に、良縁を導いて固く結ぶ「縁結び」のご祈祷を案内。",url:"https://niutsuhime.or.jp/worship/enmusubi/"},
+release:{name:"石清水八幡宮",pref:"京都府",reason:"公式に「厄除開運」「八方除け」「方除け」「災難除け」を案内。",url:"https://iwashimizu.or.jp/kito/kitoryo/"},
+healing:{name:"伏見稲荷大社",pref:"京都府",reason:"公式のご祈祷に「病気平癒」がある。",url:"https://inari.jp/grace/gokito/"},
+wisdom:{name:"大阪天満宮",pref:"大阪府",reason:"公式に「試験合格」「学業成就」のご祈祷を案内。",url:"https://osakatemmangu.or.jp/gokito"},
+guard:{name:"石清水八幡宮",pref:"京都府",reason:"公式に「必勝祈願」を案内。",url:"https://iwashimizu.or.jp/kito/kitoryo/"}},
 chugoku:{
-road:{name:"吉備津神社",pref:"岡山県",reason:"開運・心願など、新しい節目の参拝候補として。",url:"https://www.kibitujinja.com/"},
-money:{name:"吉備津彦神社",pref:"岡山県",reason:"仕事・繁栄・開運を願う候補として。",url:"https://www.kibitsuhiko.or.jp/"},
-relation:{name:"出雲大社",pref:"島根県",reason:"公式が男女だけでなく『あらゆる繋がりのご縁』と説明。",url:"https://izumooyashiro.or.jp/archives/faq/7880"},
-release:{name:"吉備津神社",pref:"岡山県",reason:"厄除・災難除けなど、区切りを願う候補として。",url:"https://www.kibitujinja.com/"},
-healing:{name:"熊野大社",pref:"島根県",reason:"心身を整え、再出発を願う参拝候補として。",url:"https://www.kumanotaisha.or.jp/"},
-wisdom:{name:"防府天満宮",pref:"山口県",reason:"天神さまへ学業・合格を願う参拝候補。",url:"https://www.hofutenmangu.com/"},
-guard:{name:"厳島神社",pref:"広島県",reason:"大事な局面の守護・安全を願う候補として。",url:"https://www.itsukushimajinja.jp/"}},
+road:{name:"吉備津神社",pref:"岡山県",reason:"公式のご祈祷に「心願成就」がある。新しい一歩を願う節目の候補に。",url:"https://www.kibitujinja.com/prayer/"},
+money:{name:"吉備津神社",pref:"岡山県",reason:"公式のご祈祷に「商売繁盛」「社運隆昌」がある。",url:"https://www.kibitujinja.com/prayer/"},
+relation:{name:"出雲大社",pref:"島根県",reason:"公式が縁結びを、男女だけでなく「あらゆる繋がりのご縁」と説明。",url:"https://izumooyashiro.or.jp/archives/faq/7880"},
+release:{name:"吉備津神社",pref:"岡山県",reason:"公式のご祈祷に「厄災消除」がある。",url:"https://www.kibitujinja.com/prayer/"},
+healing:{name:"吉備津神社",pref:"岡山県",reason:"公式のご祈祷に「身体健全」「病気平癒」がある。",url:"https://www.kibitujinja.com/prayer/"},
+wisdom:{name:"防府天満宮",pref:"山口県",reason:"公式に「受験合格」「資格・就職合格」「学業成就」を案内。",url:"https://www.hofutenmangu.com/02"},
+guard:{name:"吉備津神社",pref:"岡山県",reason:"公式のご祈祷に「必勝祈願」がある。",url:"https://www.kibitujinja.com/prayer/"}},
 shikoku:{
-road:{name:"大麻比古神社",pref:"徳島県",reason:"新しい門出・開運の節目の候補として。",url:"https://www.ooasahikojinja.jp/"},
-money:{name:"伊豫豆比古命神社（椿神社）",pref:"愛媛県",reason:"商売繁昌・開運を願う参拝候補。",url:"https://tubaki.or.jp/"},
-relation:{name:"土佐神社",pref:"高知県",reason:"人とのご縁・心願の節目に訪ねる候補として。",url:"https://tosajinja.com/"},
-release:{name:"田村神社",pref:"香川県",reason:"厄除・災難除けなどを願う参拝候補として。",url:"https://tamurajinja.com/"},
-healing:{name:"石鎚神社",pref:"愛媛県",reason:"身体健全・回復を願う参拝候補として。",url:"https://ishizuchisan.jp/"},
-wisdom:{name:"潮江天満宮",pref:"高知県",reason:"天神さまへ学業・合格を願う参拝候補。",url:"https://www.ushioe-tenmangu.jp/"},
-guard:{name:"金刀比羅宮",pref:"香川県",reason:"守護・安全・大事な局面を願う候補として。",url:"https://www.konpira.or.jp/"}},
+road:{name:"伊豫豆比古命神社（椿神社）",pref:"愛媛県",reason:"公式の主な願意に「開運縁起」がある。新しい流れを願う候補に。",url:"https://tubaki.or.jp/prayers/"},
+money:{name:"伊豫豆比古命神社（椿神社）",pref:"愛媛県",reason:"公式の主な願意に「商売繁昌」がある。",url:"https://tubaki.or.jp/prayers/"},
+relation:{name:"石鎚神社",pref:"愛媛県",reason:"公式の御祈願案内に「良縁成就」がある。",url:"https://ishizuchisan.jp/pray/guide/"},
+release:{name:"石鎚神社",pref:"愛媛県",reason:"公式の御祈願案内に「諸災消除」「厄除け」「方位除け」がある。",url:"https://ishizuchisan.jp/pray/guide/"},
+healing:{name:"石鎚神社",pref:"愛媛県",reason:"公式の御祈願案内に「身体健康」「当病平癒」がある。",url:"https://ishizuchisan.jp/pray/guide/"},
+wisdom:{name:"石鎚神社",pref:"愛媛県",reason:"公式の御祈願案内に「入試合格」「学業成就」がある。",url:"https://ishizuchisan.jp/pray/guide/"},
+guard:{name:"石鎚神社",pref:"愛媛県",reason:"公式の御祈願案内に「必勝当選」「諸災消除」がある。",url:"https://ishizuchisan.jp/pray/guide/"}},
 kyushu:{
-road:{name:"高千穂神社",pref:"宮崎県",reason:"新しい節目・心願を願う参拝候補として。",url:"https://www.kanko-miyazaki.jp/spot/1007"},
-money:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"商売繁昌・家運繁栄などを願う候補。",url:"https://www.yutokusan.jp/"},
-relation:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"良縁・心願など、ご縁の節目の候補として。",url:"https://www.yutokusan.jp/"},
-release:{name:"波上宮",pref:"沖縄県",reason:"厄除・災難除けなど、祓いの節目の候補として。",url:"https://naminouegu.jp/"},
-healing:{name:"霧島神宮",pref:"鹿児島県",reason:"身体健全・心願など、立て直しを願う候補として。",url:"https://kirishimajingu.or.jp/"},
-wisdom:{name:"太宰府天満宮",pref:"福岡県",reason:"公式に学業上達祈願を案内。学びを伸ばしたい時の候補。",url:"https://www.dazaifutenmangu.or.jp/kigan/gakugyou"},
-guard:{name:"宇佐神宮",pref:"大分県",reason:"守護・厄除など大事な局面の参拝候補として。",url:"https://www.usajinguu.com/"}}
+road:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"公式に「厄除開運」「心願祈願」を案内。新しい流れを願う候補に。",url:"https://www.yutokusan.jp/prayer/"},
+money:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"公式に「商売繁昌」のご祈願を案内。",url:"https://www.yutokusan.jp/prayer/"},
+relation:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"公式に「良縁」のご祈願を案内。",url:"https://www.yutokusan.jp/prayer/"},
+release:{name:"波上宮",pref:"沖縄県",reason:"公式に「厄祓」「攘災招福」を案内。",url:"https://www.naminouegu.jp/kigan.html"},
+healing:{name:"祐徳稲荷神社",pref:"佐賀県",reason:"公式に「身体健康」「病気平癒」を案内。",url:"https://www.yutokusan.jp/prayer/"},
+wisdom:{name:"太宰府天満宮",pref:"福岡県",reason:"公式に「学業上達祈願」「受験合格祈願」を案内。",url:"https://www.dazaifutenmangu.or.jp/kigan/gakugyou"},
+guard:{name:"波上宮",pref:"沖縄県",reason:"公式に「厄祓」「攘災招福」などを案内。大事な局面の守りを願う候補に。",url:"https://www.naminouegu.jp/kigan.html"}}
 };
 
 const QUESTIONS=[
@@ -177,7 +177,7 @@ function renderQuestion(){const q=QUESTIONS[currentQuestionIndex],c=document.get
 function selectOption(type,score){userAnswers[currentQuestionIndex]={type,score};if(currentQuestionIndex<5){currentQuestionIndex++;renderQuestion()}else{goToStep("view-loading");setTimeout(calculateAndShowResult,1200)}}
 function prevQuestion(){if(currentQuestionIndex>0){currentQuestionIndex--;renderQuestion()}}
 function calculateAndShowResult(){const scores={road:0,money:0,relation:0,release:0,healing:0,wisdom:0,guard:0};userAnswers.forEach(a=>{if(a)scores[a.type]+=a.score});const max=Math.max(...Object.values(scores)),tops=Object.keys(scores).filter(k=>scores[k]===max);let winner=tops[0];if(tops.length>1){const q6=userAnswers[5]?.type,q1=userAnswers[0]?.type;if(q6&&tops.includes(q6))winner=q6;else if(q1&&tops.includes(q1))winner=q1}finalWinner=winner;const n=NUMEROLOGY_DATA[userNumerology],sh=SHRINE_TYPES[winner];finalResultData={numerologyNum:userNumerology,numerologyName:n.name,shrineName:sh.name,shrineMessage:sh.message};document.getElementById("res-numerology-title").textContent=`数秘 ${userNumerology}｜${n.name}`;document.getElementById("res-type-title").textContent=sh.name;document.getElementById("res-theme").textContent=sh.theme;document.getElementById("res-message").textContent=sh.message;document.getElementById("res-umeko-comment").textContent=n.comment;document.getElementById("res-homework").textContent=sh.homework;document.getElementById("res-keywords").textContent=sh.keywords;document.getElementById("region-select").value="";document.getElementById("shrine-output").innerHTML="";goToStep("view-result")}
-function showShrine(){const region=document.getElementById("region-select").value,out=document.getElementById("shrine-output");if(!region||!finalWinner){out.innerHTML="";return}const s=SHRINES[region][finalWinner];out.innerHTML=`<div class="shrine-card"><div class="shrine-name">⛩️ ${s.name}</div><div class="shrine-place">${s.pref}</div><div class="shrine-reason">今の処方箋なら、このへんどう？🤣<br>${s.reason}</div><a class="official-link" href="${s.url}" target="_blank" rel="noopener noreferrer">公式情報を見てみる →</a></div>`}
+function showShrine(){const region=document.getElementById("region-select").value,out=document.getElementById("shrine-output");if(!region||!finalWinner){out.innerHTML="";return}const s=SHRINES[region][finalWinner];out.innerHTML=`<div class="shrine-card"><div class="shrine-name">⛩️ ${s.name}</div><div class="shrine-place">${s.pref}</div><div class="shrine-reason">今の処方箋なら、このへんどう？🤣<br>${s.reason}</div><a class="official-link" href="${s.url}" target="_blank" rel="noopener noreferrer">根拠にした公式情報を見る →</a></div>`}
 function copyResult(){if(!finalResultData)return;const t=`⛩️うめこ式 神社診断\n\n私は\n【数秘${finalResultData.numerologyNum}｜${finalResultData.numerologyName}】\n×\n【${finalResultData.shrineName}】\n\n今の神さま処方箋：\n『${finalResultData.shrineMessage.replace(/\n/g,"")}』\n\n#うめこ式神社診断`;if(navigator.clipboard?.writeText)navigator.clipboard.writeText(t).then(showCopyToast).catch(()=>fallbackCopyText(t));else fallbackCopyText(t)}
 function fallbackCopyText(t){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");a.remove();showCopyToast()}
 function showCopyToast(){const t=document.getElementById("copy-toast");t.textContent="神さま処方箋、コピーしたで🤣";t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),3000)}
