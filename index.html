@@ -100,52 +100,54 @@
   </div>
 </div>
 <script>
-const NUMEROLOGY_DATA={
-1:{name:"切り込み隊長",theme:"スタート・自立・開拓",comment:"先頭走るん得意やろ。今回は勢いだけで鳥居くぐるな🤣"},
-2:{name:"つなぎ屋",theme:"調和・協力・ご縁",comment:"周りの気持ちも大事。でも今日は自分のお願いも持って行き。"},
-3:{name:"ワクワク発電所",theme:"楽しさ・表現・好奇心",comment:"楽しい方にアンテナ立つ人。神社でも寄り道しすぎ注意🤣"},
-4:{name:"土台職人",theme:"安定・継続・基盤",comment:"ちゃんとしたい人ほど考えすぎる。今日は一個だけ決めよ。"},
-5:{name:"自由人",theme:"変化・行動・自由",comment:"動けるんは強み。でも次から次へ行く前に一回立ち止まろ🤣"},
-6:{name:"世話焼き隊長",theme:"愛情・責任・育てる",comment:"人のお願いまで背負わんでええ。今日は自分の番。"},
-7:{name:"探究人",theme:"分析・内省・専門性",comment:"調べるんは得意。でも検索だけで参拝した気になるな🤣"},
-8:{name:"現実動かす人",theme:"成果・仕事・豊かさ",comment:"結果を出したい人。お願いと一緒に“自分がやること”も決めよ。"},
-9:{name:"まとめて手放す人",theme:"完結・手放し・包容",comment:"抱えてるもん多ない？終わらせることも立派な前進やで。"},
-11:{name:"直感アンテナ",theme:"感性・直感・ひらめき",comment:"ピンと来る感覚は大事。そのあと現実もちゃんと確認しよ。"},
-22:{name:"デカいもん建てる人",theme:"構築・実現・スケール",comment:"デカいこと考えられる人。今日は最初の一歩まで小さく落とそ。"},
-33:{name:"愛のばら撒き隊",theme:"愛・奉仕・包容",comment:"人のことばっかり祈ってへん？今日は自分も祈願メンバーに入れ🤣"},
-44:{name:"現実化の親方",theme:"現実化・基盤・大仕事",comment:"形にする力を使う時。神頼み＋現実行動、この二刀流でいこ。"}
+
+const NUMEROLOGY_DATA = {
+  1:{name:"切り込み隊長",theme:"スタート・自立・開拓",comment:"先頭走るん得意やろ。今回は勢いだけで鳥居くぐるな🤣"},
+  2:{name:"つなぎ屋",theme:"調和・協力・ご縁",comment:"周りの気持ちも大事。でも今日は自分のお願いも持って行き。"},
+  3:{name:"ワクワク発電所",theme:"楽しさ・表現・好奇心",comment:"楽しい方にアンテナ立つ人。神社でも寄り道しすぎ注意🤣"},
+  4:{name:"土台職人",theme:"安定・継続・基盤",comment:"ちゃんとしたい人ほど考えすぎる。今日は一個だけ決めよ。"},
+  5:{name:"自由人",theme:"変化・行動・自由",comment:"動けるんは強み。でも次から次へ行く前に一回立ち止まろ🤣"},
+  6:{name:"世話焼き隊長",theme:"愛情・責任・育てる",comment:"人のお願いまで背負わんでええ。今日は自分の番。"},
+  7:{name:"探究人",theme:"分析・内省・専門性",comment:"調べるんは得意。でも検索だけで参拝した気になるな🤣"},
+  8:{name:"現実動かす人",theme:"成果・仕事・豊かさ",comment:"結果を出したい人。お願いと一緒に“自分がやること”も決めよ。"},
+  9:{name:"まとめて手放す人",theme:"完結・手放し・包容",comment:"抱えてるもん多ない？終わらせることも立派な前進やで。"},
+  11:{name:"直感アンテナ",theme:"感性・直感・ひらめき",comment:"ピンと来る感覚は大事。そのあと現実もちゃんと確認しよ。"},
+  22:{name:"デカいもん建てる人",theme:"構築・実現・スケール",comment:"デカいこと考えられる人。今日は最初の一歩まで小さく落とそ。"},
+  33:{name:"愛のばら撒き隊",theme:"愛・奉仕・包容",comment:"人のことばっかり祈ってへん？今日は自分も祈願メンバーに入れ🤣"},
+  44:{name:"現実化の親方",theme:"現実化・基盤・大仕事",comment:"形にする力を使う時。神頼み＋現実行動、この二刀流でいこ。"}
 };
-const SHRINE_TYPES={
-road:{name:"🚪 道ひらきタイプ",theme:"新しい流れ・決断・転機・最初の一歩",message:"道が見えてから動くんちゃう。\n一歩動いたら道が見えてくる時もある🤣",keywords:"道開き・開運・新しい門出など",homework:"今いちばん動かしたいことを1個決めとこ。"},
-money:{name:"💰 金運・商売繁盛タイプ",theme:"仕事・商売・成果・豊かさ",message:"お願いだけして帰ったらあかん🤣\n帰ったら何するかまで決めとこ。",keywords:"商売繁盛・事業・仕事・金運など",homework:"欲しい金額より、何で豊かになりたいか考えとこ。"},
-relation:{name:"❤️ 良縁・ご縁タイプ",theme:"人間関係・仕事・仲間・良縁",message:"縁結びいうても恋愛だけちゃうで。\n人も仕事も場所も、ご縁や。",keywords:"良縁・縁結び・人間関係など",homework:"どんなご縁が欲しいか、ちゃんと言葉にしとこ。"},
-release:{name:"✂️ 厄落とし・手放しタイプ",theme:"区切り・整理・厄除け・手放し",message:"新しいもん入れる前に、\nもう要らんもん抱えてへんか🤣",keywords:"厄除け・厄祓い・災難除けなど",homework:"何を終わらせたいか、ひとつ決めとこ。"},
-healing:{name:"🌿 癒し・再生タイプ",theme:"休息・回復・立て直し・整える",message:"頑張るんは一回休み。\n今は立て直す方が先や。",keywords:"健康祈願・無病息災・心願成就など",homework:"今日は“何を頑張るか”より“何を休むか”決めとこ。"},
-wisdom:{name:"🧠 学び・知恵タイプ",theme:"勉強・資格・技術・知識",message:"神さまに頭よくしてもろても、\nテキスト開かんかったら始まらん🤣",keywords:"学業成就・試験・知恵・技芸など",homework:"今、何を身につけたいか1個決めとこ。"},
-guard:{name:"🛡️ 勝負・守護タイプ",theme:"勝負・決断・守護・大事な局面",message:"守ってもらうんはええ。\nでも最後に決めるんは自分やで。",keywords:"勝運・必勝・守護・厄除けなど",homework:"何に勝ちたいんかより、何を守りたいんか考えてみ。}
+const SHRINE_TYPES = {
+ road:{name:"🚪 道ひらきタイプ",theme:"新しい流れ・決断・転機・最初の一歩",message:"道が見えてから動くんちゃう。\n一歩動いたら道が見えてくる時もある🤣",keywords:"道開き・開運・新しい門出など",homework:"今いちばん動かしたいことを1個決めとこ。"},
+ money:{name:"💰 金運・商売繁盛タイプ",theme:"仕事・商売・成果・豊かさ",message:"お願いだけして帰ったらあかん🤣\n帰ったら何するかまで決めとこ。",keywords:"商売繁盛・事業・仕事・金運など",homework:"欲しい金額より、何で豊かになりたいか考えとこ。"},
+ relation:{name:"❤️ 良縁・ご縁タイプ",theme:"人間関係・仕事・仲間・良縁",message:"縁結びいうても恋愛だけちゃうで。\n人も仕事も場所も、ご縁や。",keywords:"良縁・縁結び・人間関係など",homework:"どんなご縁が欲しいか、ちゃんと言葉にしとこ。"},
+ release:{name:"✂️ 厄落とし・手放しタイプ",theme:"区切り・整理・厄除け・手放し",message:"新しいもん入れる前に、\nもう要らんもん抱えてへんか🤣",keywords:"厄除け・厄祓い・災難除けなど",homework:"何を終わらせたいか、ひとつ決めとこ。"},
+ healing:{name:"🌿 癒し・再生タイプ",theme:"休息・回復・立て直し・整える",message:"頑張るんは一回休み。\n今は立て直す方が先や。",keywords:"健康祈願・無病息災・心願成就など",homework:"今日は“何を頑張るか”より“何を休むか”決めとこ。"},
+ wisdom:{name:"🧠 学び・知恵タイプ",theme:"勉強・資格・技術・知識",message:"神さまに頭よくしてもろても、\nテキスト開かんかったら始まらん🤣",keywords:"学業成就・試験・知恵・技芸など",homework:"今、何を身につけたいか1個決めとこ。"},
+ guard:{name:"🛡️ 勝負・守護タイプ",theme:"勝負・決断・守護・大事な局面",message:"守ってもらうんはええ。\nでも最後に決めるんは自分やで。",keywords:"勝運・必勝・守護・厄除けなど",homework:"何に勝ちたいんかより、何を守りたいんか考えてみ。"}
 };
-const QUESTIONS=[
-{title:"今いちばん、どうなったら嬉しい？",options:[{text:"新しい流れを作りたい",type:"road",score:2},{text:"仕事やお金を動かしたい",type:"money",score:2},{text:"ええ人・ええ仕事と繋がりたい",type:"relation",score:2},{text:"いらんもん手放したい",type:"release",score:2}]},
-{title:"今の自分に一番近いんは？",options:[{text:"行きたい方向が決まらん",type:"road",score:2},{text:"頑張ってるのに成果にならん",type:"money",score:2},{text:"人間関係がなんか噛み合わん",type:"relation",score:2},{text:"もう疲れた。知らん🤣",type:"healing",score:2}]},
-{title:"神さまに一言だけ頼めるなら？",options:[{text:"頭貸して🤣",type:"wisdom",score:2},{text:"背中押して！",type:"road",score:2},{text:"守ってくれ！",type:"guard",score:2},{text:"もうこれ終わらせて！",type:"release",score:2}]},
-{title:"今から一個だけ動かすなら？",options:[{text:"仕事・商売",type:"money",score:2},{text:"恋愛だけじゃなく、人とのご縁",type:"relation",score:2},{text:"勉強・資格・新しい技術",type:"wisdom",score:2},{text:"大事な決断・勝負",type:"guard",score:2}]},
-{title:"最近のあんた、どれ？",options:[{text:"同じところグルグルしてる",type:"road",score:2},{text:"抱え込みすぎ",type:"healing",score:2},{text:"切った方がええと分かってるのに切れん",type:"release",score:2},{text:"ここだけは負けたない、がある",type:"guard",score:2}]},
-{title:"最後。考えんと選んで。",desc:"今ほしい漢字、ひとつ。",isKanji:true,options:[{text:"開",type:"road",score:3},{text:"豊",type:"money",score:3},{text:"縁",type:"relation",score:3},{text:"祓",type:"release",score:3},{text:"休",type:"healing",score:3},{text:"智",type:"wisdom",score:3},{text:"守",type:"guard",score:3}]}
+const QUESTIONS = [
+ {title:"今いちばん、どうなったら嬉しい？",options:[{text:"新しい流れを作りたい",type:"road",score:2},{text:"仕事やお金を動かしたい",type:"money",score:2},{text:"ええ人・ええ仕事と繋がりたい",type:"relation",score:2},{text:"いらんもん手放したい",type:"release",score:2}]},
+ {title:"今の自分に一番近いんは？",options:[{text:"行きたい方向が決まらん",type:"road",score:2},{text:"頑張ってるのに成果にならん",type:"money",score:2},{text:"人間関係がなんか噛み合わん",type:"relation",score:2},{text:"もう疲れた。知らん🤣",type:"healing",score:2}]},
+ {title:"神さまに一言だけ頼めるなら？",options:[{text:"頭貸して🤣",type:"wisdom",score:2},{text:"背中押して！",type:"road",score:2},{text:"守ってくれ！",type:"guard",score:2},{text:"もうこれ終わらせて！",type:"release",score:2}]},
+ {title:"今から一個だけ動かすなら？",options:[{text:"仕事・商売",type:"money",score:2},{text:"恋愛だけじゃなく、人とのご縁",type:"relation",score:2},{text:"勉強・資格・新しい技術",type:"wisdom",score:2},{text:"大事な決断・勝負",type:"guard",score:2}]},
+ {title:"最近のあんた、どれ？",options:[{text:"同じところグルグルしてる",type:"road",score:2},{text:"抱え込みすぎ",type:"healing",score:2},{text:"切った方がええと分かってるのに切れん",type:"release",score:2},{text:"ここだけは負けたない、がある",type:"guard",score:2}]},
+ {title:"最後。考えんと選んで。",desc:"今ほしい漢字、ひとつ。",isKanji:true,options:[{text:"開",type:"road",score:3},{text:"豊",type:"money",score:3},{text:"縁",type:"relation",score:3},{text:"祓",type:"release",score:3},{text:"休",type:"healing",score:3},{text:"智",type:"wisdom",score:3},{text:"守",type:"guard",score:3}]}
 ];
-let userNumerology=null,currentQuestionIndex=0,userAnswers=[],finalResultData=null;
-window.addEventListener('DOMContentLoaded',()=>{const d=new Date(), y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), day=String(d.getDate()).padStart(2,'0');document.getElementById('birthdate-input').setAttribute('max',`${y}-${m}-${day}`);});
-function goToStep(viewId){['view-start','view-birth','view-question','view-loading','view-result'].forEach(id=>document.getElementById(id).classList.toggle('hidden',id!==viewId));window.scrollTo(0,0);}
-function clearError(){const e=document.getElementById('birth-error');e.classList.add('hidden');e.innerText='';}
-function submitBirthdate(){const v=document.getElementById('birthdate-input').value;if(!v){const e=document.getElementById('birth-error');e.innerText='誕生日忘れたんか🤣';e.classList.remove('hidden');return;}userNumerology=calculateNumerology(v.replace(/\D/g,''));currentQuestionIndex=0;userAnswers=[];renderQuestion();goToStep('view-question');}
-function calculateNumerology(s){let sum=[...s].reduce((a,c)=>a+parseInt(c,10),0),masters=[11,22,33,44];while(sum>9&&!masters.includes(sum))sum=[...String(sum)].reduce((a,c)=>a+parseInt(c,10),0);return sum;}
-function renderQuestion(){const q=QUESTIONS[currentQuestionIndex],total=QUESTIONS.length;document.getElementById('q-progress-text').innerText=`${currentQuestionIndex+1} / ${total}`;document.getElementById('q-progress-bar').style.width=`${((currentQuestionIndex+1)/total)*100}%`;document.getElementById('q-title').innerText=q.title;const desc=document.getElementById('q-desc');if(q.desc){desc.innerText=q.desc;desc.classList.remove('hidden')}else desc.classList.add('hidden');const c=document.getElementById('q-options');c.innerHTML='';if(q.isKanji){const g=document.createElement('div');g.className='kanji-grid';q.options.forEach(o=>{const x=document.createElement('div');x.className='kanji-card';x.innerText=o.text;x.onclick=()=>selectOption(o.type,o.score);g.appendChild(x)});c.appendChild(g)}else q.options.forEach(o=>{const b=document.createElement('button');b.className='option-btn';b.innerText=o.text;b.onclick=()=>selectOption(o.type,o.score);c.appendChild(b)});document.getElementById('q-back-btn').classList.toggle('hidden',currentQuestionIndex===0);}
-function selectOption(type,score){userAnswers[currentQuestionIndex]={type,score};if(currentQuestionIndex<QUESTIONS.length-1){currentQuestionIndex++;renderQuestion()}else{goToStep('view-loading');setTimeout(calculateAndShowResult,1200)}}
-function prevQuestion(){if(currentQuestionIndex>0){currentQuestionIndex--;renderQuestion()}}
-function calculateAndShowResult(){const scores={road:0,money:0,relation:0,release:0,healing:0,wisdom:0,guard:0};userAnswers.forEach(a=>{if(a&&a.type)scores[a.type]+=a.score});const max=Math.max(...Object.values(scores)),tops=Object.keys(scores).filter(k=>scores[k]===max);let winner=tops[0];if(tops.length>1){const q6=userAnswers[5]?.type,q1=userAnswers[0]?.type;if(q6&&tops.includes(q6))winner=q6;else if(q1&&tops.includes(q1))winner=q1}const n=NUMEROLOGY_DATA[userNumerology],s=SHRINE_TYPES[winner];finalResultData={numerologyNum:userNumerology,numerologyName:n.name,shrineName:s.name,shrineTheme:s.theme,shrineMessage:s.message,umekoComment:n.comment,homework:s.homework,keywords:s.keywords};document.getElementById('res-numerology-title').innerText=`数秘 ${userNumerology}｜${n.name}`;document.getElementById('res-type-title').innerText=s.name;document.getElementById('res-theme').innerText=s.theme;document.getElementById('res-message').innerText=s.message;document.getElementById('res-umeko-comment').innerText=n.comment;document.getElementById('res-homework').innerText=s.homework;document.getElementById('res-keywords').innerText=s.keywords;goToStep('view-result');}
-function copyResult(){if(!finalResultData)return;const t=`⛩️うめこ式 神社診断\n\n私は\n【数秘${finalResultData.numerologyNum}｜${finalResultData.numerologyName}】\n×\n【${finalResultData.shrineName}】\n\n今の神さま処方箋：\n『${finalResultData.shrineMessage.replace(/\n/g,'')}』\n\n#うめこ式神社診断`;if(navigator.clipboard?.writeText)navigator.clipboard.writeText(t).then(showCopyToast).catch(()=>fallbackCopyText(t));else fallbackCopyText(t);}
-function fallbackCopyText(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');showCopyToast()}catch(e){alert('コピーに失敗しました。手動でコピーしてください。')}document.body.removeChild(a);}
-function showCopyToast(){const t=document.getElementById('copy-toast');t.innerText='神さま処方箋、コピーしたで🤣';t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),3000);}
-function resetApp(){userNumerology=null;currentQuestionIndex=0;userAnswers=[];finalResultData=null;document.getElementById('birthdate-input').value='';clearError();goToStep('view-start');}
+let userNumerology=null, currentQuestionIndex=0, userAnswers=[], finalResultData=null;
+window.addEventListener("DOMContentLoaded",()=>{const d=new Date(); const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,"0"),day=String(d.getDate()).padStart(2,"0");document.getElementById("birthdate-input").max=`${y}-${m}-${day}`;});
+function goToStep(id){["view-start","view-birth","view-question","view-loading","view-result"].forEach(v=>document.getElementById(v).classList.toggle("hidden",v!==id));window.scrollTo(0,0);}
+function clearError(){const e=document.getElementById("birth-error");e.classList.add("hidden");e.innerText="";}
+function calculateNumerology(str){let sum=[...str].reduce((a,c)=>a+Number(c),0);const masters=[11,22,33,44];while(sum>9&&!masters.includes(sum))sum=[...String(sum)].reduce((a,c)=>a+Number(c),0);return sum;}
+function submitBirthdate(){const v=document.getElementById("birthdate-input").value;if(!v){const e=document.getElementById("birth-error");e.innerText="誕生日忘れたんか🤣";e.classList.remove("hidden");return;}userNumerology=calculateNumerology(v.replace(/\D/g,""));currentQuestionIndex=0;userAnswers=[];renderQuestion();goToStep("view-question");}
+function renderQuestion(){const q=QUESTIONS[currentQuestionIndex],total=QUESTIONS.length;document.getElementById("q-progress-text").innerText=`${currentQuestionIndex+1} / ${total}`;document.getElementById("q-progress-bar").style.width=`${((currentQuestionIndex+1)/total)*100}%`;document.getElementById("q-title").innerText=q.title;const d=document.getElementById("q-desc");if(q.desc){d.innerText=q.desc;d.classList.remove("hidden");}else d.classList.add("hidden");const c=document.getElementById("q-options");c.innerHTML="";if(q.isKanji){const g=document.createElement("div");g.className="kanji-grid";q.options.forEach(o=>{const x=document.createElement("div");x.className="kanji-card";x.innerText=o.text;x.onclick=()=>selectOption(o.type,o.score);g.appendChild(x);});c.appendChild(g);}else{q.options.forEach(o=>{const b=document.createElement("button");b.className="option-btn";b.innerText=o.text;b.onclick=()=>selectOption(o.type,o.score);c.appendChild(b);});}document.getElementById("q-back-btn").classList.toggle("hidden",currentQuestionIndex===0);}
+function selectOption(type,score){userAnswers[currentQuestionIndex]={type,score};if(currentQuestionIndex<QUESTIONS.length-1){currentQuestionIndex++;renderQuestion();}else{goToStep("view-loading");setTimeout(calculateAndShowResult,1200);}}
+function prevQuestion(){if(currentQuestionIndex>0){currentQuestionIndex--;renderQuestion();}}
+function calculateAndShowResult(){const scores={road:0,money:0,relation:0,release:0,healing:0,wisdom:0,guard:0};userAnswers.forEach(a=>{if(a)scores[a.type]+=a.score;});const max=Math.max(...Object.values(scores));const tops=Object.keys(scores).filter(k=>scores[k]===max);let winner=tops[0];if(tops.length>1){const q6=userAnswers[5]?.type,q1=userAnswers[0]?.type;if(q6&&tops.includes(q6))winner=q6;else if(q1&&tops.includes(q1))winner=q1;}const n=NUMEROLOGY_DATA[userNumerology],sh=SHRINE_TYPES[winner];finalResultData={numerologyNum:userNumerology,numerologyName:n.name,shrineName:sh.name,shrineTheme:sh.theme,shrineMessage:sh.message,umekoComment:n.comment,homework:sh.homework,keywords:sh.keywords};document.getElementById("res-numerology-title").innerText=`数秘 ${userNumerology}｜${n.name}`;document.getElementById("res-type-title").innerText=sh.name;document.getElementById("res-theme").innerText=sh.theme;document.getElementById("res-message").innerText=sh.message;document.getElementById("res-umeko-comment").innerText=n.comment;document.getElementById("res-homework").innerText=sh.homework;document.getElementById("res-keywords").innerText=sh.keywords;goToStep("view-result");}
+function copyResult(){if(!finalResultData)return;const t=`⛩️うめこ式 神社診断\n\n私は\n【数秘${finalResultData.numerologyNum}｜${finalResultData.numerologyName}】\n×\n【${finalResultData.shrineName}】\n\n今の神さま処方箋：\n『${finalResultData.shrineMessage.replace(/\n/g,"")}』\n\n#うめこ式神社診断`;if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(showCopyToast).catch(()=>fallbackCopyText(t));}else fallbackCopyText(t);}
+function fallbackCopyText(t){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");showCopyToast();}catch(e){alert("コピーに失敗しました。手動でコピーしてください。");}a.remove();}
+function showCopyToast(){const t=document.getElementById("copy-toast");t.innerText="神さま処方箋、コピーしたで🤣";t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),3000);}
+function resetApp(){userNumerology=null;currentQuestionIndex=0;userAnswers=[];finalResultData=null;document.getElementById("birthdate-input").value="";clearError();goToStep("view-start");}
+
 </script>
 </body>
 </html>
